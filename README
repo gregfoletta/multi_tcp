@@ -1,5 +1,7 @@
 multi_tcp - make multiple TCP connections to a host.
 
+Compiling: run 'make'
+
 Usage: ./multi_tcp <host> <port> <num_connectons>
 
 Example: ./multi_tcp localhost 80 1000
