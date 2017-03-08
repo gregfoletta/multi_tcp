@@ -12,7 +12,7 @@ int main(int argc, char **argv) {
     int num_tcp_conns;
     int *fd_table;
 
-    if  (argc < 2) {
+    if  (argc < 4) {
         printf("Usage: %s <host> <port> <num_connections>\n", argv[0]);
         return 1;
     }
@@ -23,6 +23,8 @@ int main(int argc, char **argv) {
 
     fd_table = malloc(num_tcp_conns * sizeof(int));
 
+    printf("Starting %d connections...\n", num_tcp_conns);
+
     for (int x = 0; x < num_tcp_conns; x++) {
         fd_table[x] = tcp_connect(host, port);
         if (fd_table[x] < 0) {
@@ -30,7 +32,10 @@ int main(int argc, char **argv) {
             fprintf(stderr, "tcp_connect failed at number %d (%s)\n", x, strerror(error));
             return -1;
         }
+        
+        printf("FD(%d) connected\n", fd_table[x]);
     }
 
+    printf("Sleeping for 300s\n");
     sleep(300);
 }
