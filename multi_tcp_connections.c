@@ -27,7 +27,7 @@ int main(int argc, char **argv) {
         fd_table[x] = tcp_connect(host, port);
         if (fd_table[x] < 0) {
             int error = errno;
-            fprintf(stderr, "socket creation failed at number %d (%s)\n", x, strerror(error));
+            fprintf(stderr, "tcp_connect failed at number %d (%s)\n", x, strerror(error));
             return -1;
         }
     }
