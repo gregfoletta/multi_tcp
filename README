@@ -1,0 +1,7 @@
+multi_tcp - make multiple TCP connections to a host.
+
+Usage: ./multi_tcp <host> <port> <num_connectons>
+
+Example: ./multi_tcp localhost 80 1000
+This would initiate 1000 TCP connections to port 80 on localhost.
+The process then sleeps for 300 seconds.
